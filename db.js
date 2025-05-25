@@ -10,8 +10,7 @@ const connection = mysql.createConnection({
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
   ssl: {
-    // Load your CA certificate file
-    ca: fs.readFileSync("./ca.pem"), // make sure path to your CA file is correct
+    ca: fs.readFileSync("./ca.pem"),
   },
 });
 
@@ -22,3 +21,5 @@ connection.connect((err) => {
   }
   console.log("Connected to the database!");
 });
+
+module.exports = connection; // <-- export connection here
